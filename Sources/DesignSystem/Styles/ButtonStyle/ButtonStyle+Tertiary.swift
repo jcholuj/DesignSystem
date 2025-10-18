@@ -53,7 +53,7 @@ private extension Double {
         .buttonStyle(.tertiary)
         .disabled(true)
     }
-    .environment(\.buttonTheme, .custom)
+    .environment(\.buttonTheme, .destructive)
 
     VStack(spacing: .spacing200) {
       Button("Enabled") {}
@@ -69,7 +69,7 @@ private extension Double {
 }
 
 private extension ButtonTheme {
-  static var custom: Self {
+  static var destructive: Self {
     .init(tertiary: .init(baseColor: .red))
   }
 

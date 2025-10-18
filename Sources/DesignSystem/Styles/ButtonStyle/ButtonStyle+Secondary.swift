@@ -1,39 +1,42 @@
 import SwiftUI
 
-public extension ButtonStyle where Self == PrimaryButtonStyle {
-  static var primary: Self { .init() }
+public extension ButtonStyle where Self == SecondaryButtonStyle {
+  static var secondary: Self { .init() }
 }
 
-public struct PrimaryButtonStyle: ButtonStyle {
+public struct SecondaryButtonStyle: ButtonStyle {
   @Environment(\.buttonTheme) private var theme
   @Environment(\.isEnabled) private var isEnabled
 
   public func makeBody(configuration: Configuration) -> some View {
     configuration.label
-      .font(theme.primary.font)
+      .font(theme.secondary.font)
       .foregroundStyle(
         isEnabled
-        ? theme.primary.textColor
-        : theme.primary.disabledTextColor
+        ? theme.secondary.baseColor
+        : theme.secondary.disabledBaseColor
       )
       .padding(
         .horizontal,
-        theme.primary.horizontalPadding
+        theme.secondary.horizontalPadding
       )
       .frame(
-        maxWidth: theme.primary.maxWidth,
-        minHeight: theme.primary.minHeight
+        maxWidth: theme.secondary.maxWidth,
+        minHeight: theme.secondary.minHeight
       )
       .background(
-        isEnabled
-        ? theme.primary.baseColor
-        : theme.primary.disabledBaseColor
+        RoundedRectangle(cornerRadius: theme.secondary.cornerRadius)
+          .stroke(
+            isEnabled
+            ? theme.secondary.baseColor
+            : theme.secondary.disabledBaseColor,
+            lineWidth: theme.secondary.borderWidth
+          )
       )
-      .clipShape(.rect(cornerRadius: theme.primary.cornerRadius))
-      .contentShape(.rect(cornerRadius: theme.primary.cornerRadius))
+      .contentShape(.rect(cornerRadius: theme.secondary.cornerRadius))
       .opacity(
         configuration.isPressed
-        ? theme.primary.pressedOpacity
+        ? theme.secondary.pressedOpacity
         : .defaultOpacity
       )
   }
@@ -48,29 +51,29 @@ private extension Double {
   VStack(spacing: .spacing600) {
     VStack(spacing: .spacing200) {
       Button("Enabled") {}
-        .buttonStyle(.primary)
+        .buttonStyle(.secondary)
 
       Button("Disabled") {}
-        .buttonStyle(.primary)
+        .buttonStyle(.secondary)
         .disabled(true)
     }
 
     VStack(spacing: .spacing200) {
       Button("Enabled") {}
-        .buttonStyle(.primary)
+        .buttonStyle(.secondary)
 
       Button("Disabled") {}
-        .buttonStyle(.primary)
+        .buttonStyle(.secondary)
         .disabled(true)
     }
-    .environment(\.buttonTheme, .custom)
+    .environment(\.buttonTheme, .destructive)
 
     VStack(spacing: .spacing200) {
       Button("Enabled") {}
-        .buttonStyle(.primary)
+        .buttonStyle(.secondary)
 
       Button("Disabled") {}
-        .buttonStyle(.primary)
+        .buttonStyle(.secondary)
         .disabled(true)
     }
     .environment(\.buttonTheme, .customSmall)
@@ -80,13 +83,13 @@ private extension Double {
         action: {},
         label: { Image(systemName: "plus") }
       )
-      .buttonStyle(.primary)
+      .buttonStyle(.secondary)
 
       Button(
         action: {},
         label: { Image(systemName: "plus") }
       )
-      .buttonStyle(.primary)
+      .buttonStyle(.secondary)
       .disabled(true)
     }
     .environment(\.buttonTheme, .customCircle)
@@ -95,9 +98,9 @@ private extension Double {
 }
 
 private extension ButtonTheme {
-  static var custom: Self {
+  static var destructive: Self {
     .init(
-      primary: .init(
+      secondary: .init(
         baseColor: .red,
         cornerRadius: .radius300
       )
@@ -106,7 +109,7 @@ private extension ButtonTheme {
 
   static var customSmall: Self {
     .init(
-      primary: .init(
+      secondary: .init(
         minHeight: .spacing400,
         maxWidth: nil,
         cornerRadius: .radius200,
@@ -117,7 +120,7 @@ private extension ButtonTheme {
 
   static var customCircle: Self {
     .init(
-      primary: .init(
+      secondary: .init(
         maxWidth: .spacing600,
         cornerRadius: .radius300
       )
