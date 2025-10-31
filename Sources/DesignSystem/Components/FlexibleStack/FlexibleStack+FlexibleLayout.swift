@@ -42,7 +42,7 @@ extension FlexibleStack {
         }
       }
 
-      private func horizontalSpacing(_ index: Int) -> Double {
+      func horizontalSpacing(_ index: Int) -> Double {
         guard row.items.count > .zero else { return .zero }
         let previousSubview = subviews[index - 1]
         let subview = subviews[index]
@@ -53,7 +53,7 @@ extension FlexibleStack {
         return spacing ?? defaultValue
       }
 
-      private func addItem(
+      func addItem(
         index: Int,
         idealSize: CGSize
       ) {
@@ -79,7 +79,7 @@ extension FlexibleStack {
         )
       }
 
-      private func addRow(
+      func addRow(
         index: Int,
         idealSize: CGSize
       ) {
@@ -94,7 +94,7 @@ extension FlexibleStack {
         resetProperties()
       }
 
-      private func resetProperties() {
+      func resetProperties() {
         currentRowHeight = 0
         remainingWidth = maxWidth
         row = .empty
