@@ -1,9 +1,43 @@
 import SwiftUI
 
 public extension ButtonStyle where Self == TertiaryButtonStyle {
+  /// A tertiary button style with text-only appearance.
+  ///
+  /// Use this style for the least emphasized actions, such as "Learn More" or auxiliary options.
   static var tertiary: Self { .init() }
 }
 
+/// A text-only button style representing tertiary actions in your interface.
+///
+/// `TertiaryButtonStyle` creates minimalist buttons with no background or border,
+/// showing only colored text. Perfect for low-emphasis actions.
+///
+/// ## Basic Usage
+///
+/// ```swift
+/// Button("Learn More") {
+///     // Action
+/// }
+/// .buttonStyle(.tertiary)
+/// ```
+///
+/// ## Customizing with Theme
+///
+/// ```swift
+/// let customTheme = ButtonTheme(
+///     tertiary: .init(
+///         baseColor: .purple,
+///         font: .callout.weight(.semibold)
+///     )
+/// )
+///
+/// Button("Skip") { }
+///     .buttonStyle(.tertiary)
+///     .environment(\.buttonTheme, customTheme)
+/// ```
+///
+/// - Note: Automatically handles disabled and pressed states with visual feedback.
+///
 public struct TertiaryButtonStyle: ButtonStyle {
   @Environment(\.buttonTheme) private var theme
   @Environment(\.isEnabled) private var isEnabled

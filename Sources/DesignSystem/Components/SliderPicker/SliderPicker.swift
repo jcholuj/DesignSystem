@@ -1,5 +1,76 @@
 import SwiftUI
 
+/// An interactive slider-based picker component with visual feedback and customizable appearance.
+///
+/// `SliderPicker` provides an intuitive way to select numeric values through:
+/// - Smooth animated selection indicator
+/// - Interactive tap and drag gestures
+/// - Visual dividers for step indication
+/// - Dynamic label sizing based on selection
+/// - Fully customizable appearance through `SliderPickerTheme`
+///
+/// ## Basic Usage
+///
+/// ```swift
+/// struct ContentView: View {
+///     @State private var selection: Int? = 5
+///
+///     var body: some View {
+///         SliderPicker(
+///             selection: $selection,
+///             steps: 10
+///         )
+///     }
+/// }
+/// ```
+///
+/// ## Inside ScrollView
+///
+/// When using `SliderPicker` inside a `ScrollView`, you need to handle simultaneous horizontal and vertical gestures.
+/// Use the `isScrolling` binding with `onScrollPhaseChange` modifier to prevent gesture conflicts:
+///
+/// ```swift
+/// extension ScrollPhase {
+///     var isScrolling: Bool {
+///         self != .idle
+///     }
+/// }
+///
+/// struct ContentView: View {
+///     @State private var selection: Int? = 5
+///     @State private var isScrolling = false
+///
+///     var body: some View {
+///         ScrollView {
+///             SliderPicker(
+///                 selection: $selection,
+///                 isScrolling: $isScrolling,
+///                 steps: 10
+///             )
+///         }
+///         .onScrollPhaseChange { _, newPhase in
+///             isScrolling = newPhase.isScrolling
+///         }
+///     }
+/// }
+/// ```
+///
+/// ## Customizing Theme
+///
+/// ```swift
+/// let customTheme = SliderPickerTheme(
+///     color: .purple,
+///     backgroundColor: .gray.opacity(0.2),
+///     height: 40,
+///     cornerRadius: 20
+/// )
+///
+/// SliderPicker(selection: $selection, steps: 10)
+///     .environment(\.sliderPickerTheme, customTheme)
+/// ```
+///
+/// - Note: The selection value must be between 0 and the specified steps value. A fatal error will occur if selection exceeds steps.
+///
 public struct SliderPicker: View {
   private let steps: Int
   @State private var width: CGFloat = .zero
@@ -22,6 +93,12 @@ public struct SliderPicker: View {
     return CGFloat(selection) * (spacing + 1)
   }
 
+  /// Creates a slider picker with customizable selection range.
+  ///
+  /// - Parameters:
+  ///   - selection: A binding to the selected value (0 to steps range). Must not exceed steps count.
+  ///   - isScrolling: An optional binding to track scroll state (default is `.constant(false)`). Use with `onScrollPhaseChange` when inside a ScrollView to handle gesture conflicts.
+  ///   - steps: The maximum number of steps (default is 10). Creates a range from 0 to this value.
   public init(
     selection: Binding<Int?>,
     isScrolling: Binding<Bool> = .constant(false),

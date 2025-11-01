@@ -1,9 +1,43 @@
 import SwiftUI
 
 public extension ButtonStyle where Self == PrimaryButtonStyle {
+  /// A primary button style with filled background.
+  ///
+  /// Use this style for the main call-to-action buttons in your interface.
   static var primary: Self { .init() }
 }
 
+/// A filled button style representing primary actions in your interface.
+///
+/// `PrimaryButtonStyle` creates buttons with a solid background color, contrasting text,
+/// and customizable appearance through the `ButtonTheme` environment.
+///
+/// ## Basic Usage
+///
+/// ```swift
+/// Button("Continue") {
+///     // Action
+/// }
+/// .buttonStyle(.primary)
+/// ```
+///
+/// ## Customizing with Theme
+///
+/// ```swift
+/// let customTheme = ButtonTheme(
+///     primary: .init(
+///         baseColor: .green,
+///         cornerRadius: .radius200
+///     )
+/// )
+///
+/// Button("Save") { }
+///     .buttonStyle(.primary)
+///     .environment(\.buttonTheme, customTheme)
+/// ```
+///
+/// - Note: Automatically handles disabled and pressed states with visual feedback.
+///
 public struct PrimaryButtonStyle: ButtonStyle {
   @Environment(\.buttonTheme) private var theme
   @Environment(\.isEnabled) private var isEnabled

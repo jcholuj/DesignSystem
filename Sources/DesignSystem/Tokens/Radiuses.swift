@@ -1,5 +1,29 @@
 import Foundation
 
+/// Design tokens for consistent corner radius values throughout the application.
+///
+/// These radius values follow a systematic scale from 2pt to 24pt,
+/// providing consistent rounded corners across all UI components.
+///
+/// ## Usage
+///
+/// ```swift
+/// RoundedRectangle(cornerRadius: .radius150)
+///     .fill(.blue)
+///
+/// Text("Button")
+///     .padding()
+///     .background(
+///         RoundedRectangle(cornerRadius: .radius200)
+///             .fill(.blue)
+///     )
+/// ```
+///
+/// ## Scale
+///
+/// The radius scale uses a naming convention where the number represents
+/// the size step (e.g., radius100 = 8pt, radius150 = 12pt, radius200 = 16pt).
+///
 public extension CGFloat {
   /// Value: 2.0
   static let radius25 = 2.0
