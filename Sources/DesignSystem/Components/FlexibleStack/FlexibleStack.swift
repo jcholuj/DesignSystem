@@ -1,9 +1,65 @@
 import SwiftUI
 
+/// A custom layout container that automatically wraps content into multiple rows based on available space.
+///
+/// `FlexibleStack` arranges its subviews horizontally, wrapping them to the next row when they don't fit in the available width.
+/// This is similar to CSS flexbox with `flex-wrap: wrap` behavior.
+///
+/// Features:
+/// - Automatic row wrapping based on available width
+/// - Customizable alignment for content positioning
+/// - Optional spacing between items
+/// - Ideal for tag clouds, chip collections, or any dynamic content layout
+///
+/// ## Basic Usage
+///
+/// ```swift
+/// struct ContentView: View {
+///     let tags = ["SwiftUI", "iOS", "Design", "Layout", "Components"]
+///
+///     var body: some View {
+///         FlexibleStack(alignment: .leading, spacing: 8) {
+///             ForEach(tags, id: \.self) { tag in
+///                 Text(tag)
+///                     .padding(.horizontal, 12)
+///                     .padding(.vertical, 6)
+///                     .background(Color.blue.opacity(0.2))
+///                     .cornerRadius(8)
+///             }
+///         }
+///     }
+/// }
+/// ```
+///
+/// ## With Different Alignments
+///
+/// ```swift
+/// // Center aligned
+/// FlexibleStack(alignment: .center, spacing: 8) {
+///     ForEach(items, id: \.self) { item in
+///         ItemView(item: item)
+///     }
+/// }
+///
+/// // Trailing aligned
+/// FlexibleStack(alignment: .trailing, spacing: 12) {
+///     ForEach(items, id: \.self) { item in
+///         ItemView(item: item)
+///     }
+/// }
+/// ```
+///
+/// - Note: FlexibleStack uses SwiftUI's Layout protocol and calculates row wrapping dynamically based on available space.
+///
 public struct FlexibleStack: Layout {
   private let alignment: Alignment
   private let spacing: CGFloat?
 
+  /// Creates a flexible stack layout with specified alignment and spacing.
+  ///
+  /// - Parameters:
+  ///   - alignment: The alignment of items within each row and rows within the container (default is `.center`).
+  ///   - spacing: Optional spacing between items. If nil, uses default SwiftUI spacing.
   public init(
     alignment: Alignment = .center,
     spacing: CGFloat? = nil

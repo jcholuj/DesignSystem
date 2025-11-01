@@ -1,5 +1,25 @@
 import Foundation
 
+/// Design tokens for consistent spacing throughout the application.
+///
+/// These spacing values follow a systematic scale from 2pt to 72pt,
+/// providing a consistent rhythm and visual hierarchy in your layouts.
+///
+/// ## Usage
+///
+/// ```swift
+/// VStack(spacing: .spacing200) {
+///     Text("Title")
+///         .padding(.spacing100)
+///     Text("Body")
+/// }
+/// ```
+///
+/// ## Scale
+///
+/// The spacing scale uses a naming convention where the number represents
+/// the size step (e.g., spacing100 = 8pt, spacing200 = 16pt, spacing300 = 24pt).
+///
 public extension CGFloat {
   /// Value: 2.0
   static let spacing25 = 2.0

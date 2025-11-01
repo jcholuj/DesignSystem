@@ -1,6 +1,10 @@
 import SwiftUI
 
 extension ButtonTheme {
+  /// Configuration for primary button styling.
+  ///
+  /// Defines the visual properties of filled primary buttons including colors,
+  /// sizing, typography, and interaction states.
   public struct Primary {
     let baseColor: Color
     let textColor: Color
@@ -13,6 +17,19 @@ extension ButtonTheme {
     let cornerRadius: CGFloat
     let font: Font
 
+    /// Creates a primary button configuration.
+    ///
+    /// - Parameters:
+    ///   - baseColor: The background color (default is `.blue`).
+    ///   - textColor: The text color (default is `.white`).
+    ///   - disabledBaseColor: The background color when disabled (default is gray with 30% opacity).
+    ///   - disabledTextColor: The text color when disabled (default is `.gray`).
+    ///   - pressedOpacity: The opacity when pressed (default is `0.7`).
+    ///   - minHeight: The minimum height (default is `.spacing600`).
+    ///   - maxWidth: The maximum width (default is `.infinity`).
+    ///   - horizontalPadding: The horizontal padding (default is `.spacing200`).
+    ///   - cornerRadius: The corner radius (default is `.radius150`).
+    ///   - font: The font (default is `.headline.weight(.semibold)`).
     public init(
       baseColor: Color = .blue,
       textColor: Color = .white,

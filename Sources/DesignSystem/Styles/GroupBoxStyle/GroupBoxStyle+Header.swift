@@ -1,8 +1,46 @@
 import SwiftUI
 
 public extension GroupBoxStyle where Self == HeaderGroupBoxStyle {
+  /// A group box style with header-focused styling.
+  ///
+  /// Use this style for content sections with prominent headers.
   static var header: Self { .init() }
 }
+
+/// A group box style that emphasizes the header label.
+///
+/// `HeaderGroupBoxStyle` arranges content with a prominent header and customizable
+/// alignment and spacing, all controlled through the `HeaderTheme` environment.
+///
+/// ## Basic Usage
+///
+/// ```swift
+/// GroupBox("Section Title") {
+///     Text("Content goes here")
+/// }
+/// .groupBoxStyle(.header)
+/// ```
+///
+/// ## Customizing with Theme
+///
+/// ```swift
+/// let customTheme = HeaderTheme(
+///     font: .title2.bold(),
+///     headerTextColor: .purple,
+///     spacing: .spacing200,
+///     headerAlignment: .center
+/// )
+///
+/// GroupBox("Title") {
+///     VStack {
+///         Text("Line 1")
+///         Text("Line 2")
+///     }
+/// }
+/// .groupBoxStyle(.header)
+/// .environment(\.headerTheme, customTheme)
+/// ```
+///
 public struct HeaderGroupBoxStyle: GroupBoxStyle {
   @Environment(\.headerTheme) private var theme
 
