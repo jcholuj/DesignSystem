@@ -1,6 +1,10 @@
 import SwiftUI
 
 extension ButtonTheme {
+  /// Configuration for secondary button styling.
+  ///
+  /// Defines the visual properties of outlined secondary buttons including border,
+  /// colors, sizing, typography, and interaction states.
   public struct Secondary {
     let baseColor: Color
     let disabledBaseColor: Color
@@ -12,6 +16,18 @@ extension ButtonTheme {
     let cornerRadius: CGFloat
     let font: Font
 
+    /// Creates a secondary button configuration.
+    ///
+    /// - Parameters:
+    ///   - baseColor: The border and text color (default is `.blue`).
+    ///   - disabledBaseColor: The color when disabled (default is `.gray`).
+    ///   - borderWidth: The border stroke width (default is `1.5`).
+    ///   - pressedOpacity: The opacity when pressed (default is `0.7`).
+    ///   - minHeight: The minimum height (default is `.spacing600`).
+    ///   - maxWidth: The maximum width (default is `.infinity`).
+    ///   - horizontalPadding: The horizontal padding (default is `.spacing200`).
+    ///   - cornerRadius: The corner radius (default is `.radius150`).
+    ///   - font: The font (default is `.headline.weight(.semibold)`).
     public init(
       baseColor: Color = .blue,
       disabledBaseColor: Color = .gray,

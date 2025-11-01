@@ -1,9 +1,44 @@
 import SwiftUI
 
 public extension ButtonStyle where Self == SecondaryButtonStyle {
+  /// A secondary button style with outlined appearance.
+  ///
+  /// Use this style for secondary actions that need less emphasis than primary buttons.
   static var secondary: Self { .init() }
 }
 
+/// An outlined button style representing secondary actions in your interface.
+///
+/// `SecondaryButtonStyle` creates buttons with a bordered outline and no background fill,
+/// making them visually subordinate to primary buttons while still being clearly interactive.
+///
+/// ## Basic Usage
+///
+/// ```swift
+/// Button("Cancel") {
+///     // Action
+/// }
+/// .buttonStyle(.secondary)
+/// ```
+///
+/// ## Customizing with Theme
+///
+/// ```swift
+/// let customTheme = ButtonTheme(
+///     secondary: .init(
+///         baseColor: .red,
+///         borderWidth: 2,
+///         cornerRadius: .radius200
+///     )
+/// )
+///
+/// Button("Delete") { }
+///     .buttonStyle(.secondary)
+///     .environment(\.buttonTheme, customTheme)
+/// ```
+///
+/// - Note: Automatically handles disabled and pressed states with visual feedback.
+///
 public struct SecondaryButtonStyle: ButtonStyle {
   @Environment(\.buttonTheme) private var theme
   @Environment(\.isEnabled) private var isEnabled

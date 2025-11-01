@@ -1,6 +1,10 @@
 import SwiftUI
 
 extension ButtonTheme {
+  /// Configuration for tertiary button styling.
+  ///
+  /// Defines the visual properties of text-only tertiary buttons including
+  /// colors, sizing, typography, and interaction states.
   public struct Tertiary {
     let baseColor: Color
     let disabledBaseColor: Color
@@ -10,6 +14,16 @@ extension ButtonTheme {
     let horizontalPadding: CGFloat
     let font: Font
 
+    /// Creates a tertiary button configuration.
+    ///
+    /// - Parameters:
+    ///   - baseColor: The text color (default is `.blue`).
+    ///   - disabledBaseColor: The text color when disabled (default is `.gray`).
+    ///   - pressedOpacity: The opacity when pressed (default is `0.7`).
+    ///   - minHeight: The minimum height (default is `.spacing600`).
+    ///   - maxWidth: The maximum width (default is `.infinity`).
+    ///   - horizontalPadding: The horizontal padding (default is `.spacing200`).
+    ///   - font: The font (default is `.headline.weight(.semibold)`).
     public init(
       baseColor: Color = .blue,
       disabledBaseColor: Color = .gray,
