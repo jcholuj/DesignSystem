@@ -21,8 +21,8 @@ extension ButtonTheme {
     /// - Parameters:
     ///   - baseColor: The border and text color (default is `.blue`).
     ///   - disabledBaseColor: The color when disabled (default is `.gray`).
-    ///   - borderWidth: The border stroke width (default is `1.5`).
-    ///   - pressedOpacity: The opacity when pressed (default is `0.7`).
+    ///   - borderWidth: The border stroke width (default is `.borderWidthSecondary`).
+    ///   - pressedOpacity: The opacity when pressed (default is `.pressedOpacity`).
     ///   - minHeight: The minimum height (default is `.spacing600`).
     ///   - maxWidth: The maximum width (default is `.infinity`).
     ///   - horizontalPadding: The horizontal padding (default is `.spacing200`).
@@ -31,8 +31,8 @@ extension ButtonTheme {
     public init(
       baseColor: Color = .blue,
       disabledBaseColor: Color = .gray,
-      borderWidth: CGFloat = 1.5,
-      pressedOpacity: Double = 0.7,
+      borderWidth: CGFloat = .borderWidthSecondary,
+      pressedOpacity: Double = .pressedOpacity,
       minHeight: CGFloat = .spacing600,
       maxWidth: CGFloat? = .infinity,
       horizontalPadding: CGFloat = .spacing200,

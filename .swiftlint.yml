@@ -1,0 +1,21 @@
+opt_in_rules:
+  - redundant_type_annotation
+  - sorted_imports
+  - closure_spacing
+  - file_header
+  - vertical_whitespace_between_cases
+  - multiline_function_chains
+
+disabled_rules:
+  - superfluous_disable_command
+  - todo
+  - function_body_length
+  - multiple_closures_with_trailing_closure
+  - implicit_return
+
+cyclomatic_complexity:
+  ignores_case_statements: true
+
+nesting:
+  type_level: 2
+

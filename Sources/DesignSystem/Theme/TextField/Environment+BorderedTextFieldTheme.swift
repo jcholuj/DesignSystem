@@ -54,8 +54,6 @@ public final class BorderedTextFieldTheme {
   let height: CGFloat
   /// The corner radius of the text field.
   let cornerRadius: CGFloat
-  /// The animation used for state transitions.
-  let animation: Animation
   /// The icon for the clear button. Set to nil to hide the clear button.
   let clearButtonIcon: Image?
 
@@ -67,10 +65,9 @@ public final class BorderedTextFieldTheme {
   ///   - enabledTextColor: The focused text color (default is `.black`).
   ///   - backgroundColor: The background color (default is `.white`).
   ///   - validationColor: The validation error color (default is `.red`).
-  ///   - borderWidth: The border stroke width (default is `2`).
-  ///   - height: The text field height (default is `24`).
-  ///   - cornerRadius: The corner radius (default is `12`).
-  ///   - animation: The transition animation (default is `.bouncy(extraBounce: 0.15)`).
+  ///   - borderWidth: The border stroke width (default is `.borderWidthPrimary`).
+  ///   - height: The text field height (default is `.spacing900`).
+  ///   - cornerRadius: The corner radius (default is `.radius150`).
   ///   - clearButtonIcon: The clear button icon (default is `Image(systemName: "xmark.circle")`). Set to nil to hide.
   public init(
     color: Color = .blue,
@@ -78,10 +75,9 @@ public final class BorderedTextFieldTheme {
     enabledTextColor: Color = .black,
     backgroundColor: Color = .white,
     validationColor: Color = .red,
-    borderWidth: CGFloat = 2,
-    height: CGFloat = 24,
-    cornerRadius: CGFloat = 12,
-    animation: Animation = .bouncy(extraBounce: 0.15),
+    borderWidth: CGFloat = .borderWidthPrimary,
+    height: CGFloat = .spacing900,
+    cornerRadius: CGFloat = .radius150,
     clearButtonIcon: Image? = Image(systemName: "xmark.circle")
   ) {
     self.color = color
@@ -92,7 +88,6 @@ public final class BorderedTextFieldTheme {
     self.borderWidth = borderWidth
     self.height = height
     self.cornerRadius = cornerRadius
-    self.animation = animation
     self.clearButtonIcon = clearButtonIcon
   }
 }
