@@ -137,7 +137,7 @@ public struct SliderPicker: View {
         }
       }
       .background(.clear)
-      .frame(height: self.theme.height + 28.0)
+      .frame(height: self.theme.height + .sliderPickerAdditionalHeight)
     }
     .frame(maxWidth: .infinity)
     .coordinateSpace(name: self.pickerSpace)
@@ -259,6 +259,11 @@ private extension SliderPicker {
 // MARK: Preview
 
 #if DEBUG
+private extension CGFloat {
+  /// Additional height for slider picker container (accounts for labels and padding).
+  static let sliderPickerAdditionalHeight = 28.0
+}
+
 #Preview {
   VStack(spacing: 30) {
     SliderPicker(
@@ -294,10 +299,10 @@ private extension SliderPicker {
       \.sliderPickerTheme,
        .init(
         color: .pink,
-        height: 40
+        height: .spacing500
        )
     )
   }
-  .padding(16)
+  .padding(.spacing200)
 }
 #endif

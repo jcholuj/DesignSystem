@@ -44,8 +44,10 @@ public final class HeaderTheme {
       switch self {
       case .leading:
           .leading
+
       case .center:
           .center
+
       case .trailing:
           .trailing
       }
@@ -55,8 +57,10 @@ public final class HeaderTheme {
       switch self {
       case .leading:
           .leading
+
       case .center:
           .center
+
       case .trailing:
           .trailing
       }

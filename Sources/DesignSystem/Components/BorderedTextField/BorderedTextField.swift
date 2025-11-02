@@ -115,13 +115,14 @@ public struct BorderedTextField: View {
         }
       }
       .padding(.spacing200)
-      .frame(height: .spacing900)
+      .frame(height: theme.height)
       .container(
         .zero,
-        backgroundColor: theme.backgroundColor
+        backgroundColor: theme.backgroundColor,
+        cornerRadius: theme.cornerRadius
       )
       .overlay(
-        RoundedRectangle(cornerRadius: .radius150)
+        RoundedRectangle(cornerRadius: theme.cornerRadius)
           .stroke(
             borderColor,
             lineWidth: theme.borderWidth
