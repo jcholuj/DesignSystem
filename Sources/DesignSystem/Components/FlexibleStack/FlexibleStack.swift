@@ -18,13 +18,13 @@ import SwiftUI
 ///     let tags = ["SwiftUI", "iOS", "Design", "Layout", "Components"]
 ///
 ///     var body: some View {
-///         FlexibleStack(alignment: .leading, spacing: 8) {
+///         FlexibleStack(alignment: .leading, spacing: .spacing100) {
 ///             ForEach(tags, id: \.self) { tag in
 ///                 Text(tag)
-///                     .padding(.horizontal, 12)
-///                     .padding(.vertical, 6)
+///                     .padding(.horizontal, .spacing150)
+///                     .padding(.vertical, .spacing75)
 ///                     .background(Color.blue.opacity(0.2))
-///                     .cornerRadius(8)
+///                     .cornerRadius(.radius100)
 ///             }
 ///         }
 ///     }

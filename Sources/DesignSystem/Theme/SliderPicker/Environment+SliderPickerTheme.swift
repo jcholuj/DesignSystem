@@ -18,8 +18,8 @@ public extension EnvironmentValues {
 /// let customTheme = SliderPickerTheme(
 ///     color: .purple,
 ///     backgroundColor: .gray.opacity(0.2),
-///     height: 40,
-///     cornerRadius: 20
+///     height: .spacing500,
+///     cornerRadius: .radius250
 /// )
 ///
 /// SliderPicker(selection: $value, steps: 10)
@@ -59,16 +59,16 @@ public final class SliderPickerTheme {
   ///   - color: The selection indicator and label color (default is `.blue`).
   ///   - backgroundColor: The track background color (default is gray with 20% opacity).
   ///   - dividerColor: The divider line color (default is gray with 50% opacity).
-  ///   - height: The track height (default is `24`).
-  ///   - cornerRadius: The corner radius (default is `12`).
-  ///   - animation: The selection animation (default is `.bouncy(extraBounce: 0.15)`).
+  ///   - height: The track height (default is `.spacing300`).
+  ///   - cornerRadius: The corner radius (default is `.radius150`).
+  ///   - animation: The selection animation (default is `.bouncyDefault`).
   public init(
     color: Color = .blue,
     backgroundColor: Color = .gray.opacity(0.2),
     dividerColor: Color = .gray.opacity(0.5),
-    height: CGFloat = 24,
-    cornerRadius: CGFloat = 12,
-    animation: Animation = .bouncy(extraBounce: 0.15)
+    height: CGFloat = .spacing300,
+    cornerRadius: CGFloat = .radius150,
+    animation: Animation = .bouncyDefault
   ) {
     self.color = color
     self.backgroundColor = backgroundColor

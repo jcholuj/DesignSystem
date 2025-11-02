@@ -126,16 +126,16 @@ public extension View {
   func container(
     _ padding: CGFloat = .spacing200,
     backgroundColor: Color = .white,
+    cornerRadius: CGFloat = .radius200,
     shouldApplyShadow: Bool = true
   ) -> some View {
     self
       .frame(maxWidth: .infinity)
       .padding(padding)
       .background(backgroundColor)
-      .clipShape(.rect(cornerRadius: .radius200))
+      .clipShape(.rect(cornerRadius: cornerRadius))
       .apply(if: shouldApplyShadow) {
         $0.shadow200()
       }
   }
 }
-
