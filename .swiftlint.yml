@@ -1,17 +1,32 @@
 opt_in_rules:
+  - closure_spacing
+  - empty_string
+  - explicit_init
+  - file_header
+  - first_where
+  - force_unwrapping
+  - implicit_return
+  - multiline_arguments
+  - multiline_arguments_brackets
+  - multiline_function_chains
+  - multiline_parameters
+  - multiline_parameters_brackets
+  - one_declaration_per_file
+  - prefer_self_in_static_references
+  - private_subject
   - redundant_type_annotation
   - sorted_imports
-  - closure_spacing
-  - file_header
+  - trailing_closure
   - vertical_whitespace_between_cases
-  - multiline_function_chains
 
 disabled_rules:
   - superfluous_disable_command
   - todo
   - function_body_length
   - multiple_closures_with_trailing_closure
-  - implicit_return
+
+analyzer_rules:
+  - explicit_self
 
 cyclomatic_complexity:
   ignores_case_statements: true
@@ -19,3 +34,6 @@ cyclomatic_complexity:
 nesting:
   type_level: 2
 
+multiline_parameters:
+  severity: error
+  max_number_of_single_line_parameters: 1
